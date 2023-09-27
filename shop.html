@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FunkoShop</title>
+
+
+	<!--recursos-->
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/branding/logo_light_horizontal.svg" alt="Logo" />
+            </a>
+        </div>
+        <ul class="menu">
+            <li class="menu-item">
+                <a href="#">Shop</a>
+                <ul class="submenu">
+                    <li><a href="#">Submenú Item 1</a></li>
+                    <li><a href="#">Submenú Item 2</a></li>
+                    <li><a href="#">Submenú Item 3</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+        </ul>
+    </nav>
+</header>
+
+	<section id="catalogo">
+    <aside id="filtro">
+           <form>
+        <div class="filtro-item">
+            <label for="filtro-titulo">Buscar</label>
+            <input type="text" id="buscar" name="buscar" placeholder="Escribe aquí">
+        </div>
+
+        <div class="filtro-item">
+            <label for="filtro-titulo">Ordenar Por</label>
+            <select id="ordenar" name="ordenar">
+                <option value="mayor-menor">De mayor a menor</option>
+                <option value="menor-mayor">De menor a mayor</option>
+                <option value="mas-nuevo">Más nuevo</option>
+                <!-- Agrega más opciones de orden aquí -->
+            </select>
+        </div>
+
+        <div class="filtro-item">
+        	<label for="filtro-titulo">Precio</label>
+            <label for="precio-min-max">Precio Mínimo:</label>
+            <input type="number" id="precio-min" name="precio-min" class="precio-total">
+        </div>
+
+        <div class="filtro-item">
+            <label for="precio-min-max">Precio Máximo:</label>
+            <input type="number" id="precio-max" name="precio-max" class="precio-total">
+        </div>
+
+        <div class="filtro-item">
+            <label class="filtro-titulo">Filtrar</label>
+            <div>
+                <input type="checkbox" id="nuevo" name="nuevo">
+                <label for="nuevo">Nuevo</label>
+            </div>
+            <div>
+                <input type="checkbox" id="ofertas" name="ofertas">
+                <label for="ofertas">Ofertas</label>
+            </div>
+            <div>
+                <input type="checkbox" id="edicion-especial" name="edicion-especial">
+                <label for="edicion-especial">Edición Especial</label>
+            </div>
+            <div>
+                <input type="checkbox" id="favoritos" name="favoritos">
+                <label for="favoritos">Favoritos</label>
+            </div>
+        </div>
+
+    </form>
+    </aside>
+
+    <article id="productos">
+        <h1>Catálogo de Productos</h1>
+
+        <div class="producto">
+        	<div class="banner-superior">Nuevo</div>
+            <img src="img/star-wars/trooper-1.webp" alt="trooper-1.webp">
+          
+            <p class="categoria">Star Wars</p>
+            <p class="titulo-producto">Stormtrooper lightsaber</p>
+            <p class="precio-producto">$ 1799,99</p>
+            <p class="cuotas">3 cuotas sin interés</p>
+        </div>
+
+        <div class="producto">
+        	<div class="banner-superior">Nuevo</div>
+            <img src="img/pokemon/pidgeotto-1.webp" alt="trooper-1.webp">
+          
+            <p class="categoria">Pokemon</p>
+            <p class="titulo-producto">Pidgeotto</p>
+            <p class="precio-producto">$ 1799,99</p>
+            <p class="cuotas">3 cuotas sin interés</p>
+        </div>
+
+         <div class="producto">
+        	<div class="banner-superior">Nuevo</div>
+            <img src="img/harry-potter/luna-1.webp" alt="trooper-1.webp">
+          
+            <p class="categoria">Harry Potter</p>
+            <p class="titulo-producto">Luna Lovegood Lion Mask </p>
+            <p class="precio-producto">$ 1799,99</p>
+            <p class="cuotas">3 cuotas sin interés</p>
+        </div>
+
+        <div class="producto">
+        	<div class="banner-superior">Nuevo</div>
+            <img src="img/star-wars/trooper-1.webp" alt="trooper-1.webp">
+          
+            <p class="categoria">Star Wars</p>
+            <p class="titulo-producto">Stormtrooper lightsaber</p>
+            <p class="precio-producto">$ 1799,99</p>
+            <p class="cuotas">3 cuotas sin interés</p>
+        </div>
+
+        <div class="producto">
+        	<div class="banner-superior">Nuevo</div>
+            <img src="img/pokemon/pidgeotto-1.webp" alt="trooper-1.webp">
+          
+            <p class="categoria">Pokemon</p>
+            <p class="titulo-producto">Pidgeotto</p>
+            <p class="precio-producto">$ 1799,99</p>
+            <p class="cuotas">3 cuotas sin interés</p>
+        </div>
+
+         <div class="producto">
+        	<div class="banner-superior">Nuevo</div>
+            <img src="img/harry-potter/luna-1.webp" alt="trooper-1.webp">
+          
+            <p class="categoria">Harry Potter</p>
+            <p class="titulo-producto">Luna Lovegood Lion Mask </p>
+            <p class="precio-producto">$ 1799,99</p>
+            <p class="cuotas">3 cuotas sin interés</p>
+        </div>
+
+        <div class="producto">
+        	<div class="banner-superior">Nuevo</div>
+            <img src="img/star-wars/trooper-1.webp" alt="trooper-1.webp">
+          
+            <p class="categoria">Star Wars</p>
+            <p class="titulo-producto">Stormtrooper lightsaber</p>
+            <p class="precio-producto">$ 1799,99</p>
+            <p class="cuotas">3 cuotas sin interés</p>
+        </div>
+
+        <div class="producto">
+        	<div class="banner-superior">Nuevo</div>
+            <img src="img/pokemon/pidgeotto-1.webp" alt="trooper-1.webp">
+          
+            <p class="categoria">Pokemon</p>
+            <p class="titulo-producto">Pidgeotto</p>
+            <p class="precio-producto">$ 1799,99</p>
+            <p class="cuotas">3 cuotas sin interés</p>
+        </div>
+
+         <div class="producto">
+        	<div class="banner-superior">Nuevo</div>
+            <img src="img/harry-potter/luna-1.webp" alt="trooper-1.webp">
+          
+            <p class="categoria">Harry Potter</p>
+            <p class="titulo-producto">Luna Lovegood Lion Mask </p>
+            <p class="precio-producto">$ 1799,99</p>
+            <p class="cuotas">3 cuotas sin interés</p>
+        </div>
+
+
+
+    </article>
+
+
+<div id="pagination">
+    <span class="pagination-item"><i class="fas fa-chevron-left"></i></span>
+    <span class="pagination-item">1</span>
+    <span class="pagination-item">2</span>
+    <span class="pagination-item">...</span>
+    <span class="pagination-item">9</span>
+    <span class="pagination-item">10</span>
+    <span class="pagination-item"><i class="fas fa-chevron-right"></i></span>
+</div>
+
+</section>
+	
+</body>
+</html>
