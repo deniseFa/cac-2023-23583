@@ -1,0 +1,333 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;900&family=Raleway:wght@100;300;400;500;600;700;900&display=swap');
+
+/*NORMALIZE*/
+
+*,
+*::before,
+*::after{ 
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {  /*Estilos globales*/
+    font-family: var(--base-font);
+    font-size: 62.5%; /*por defecto navegador 16px entonces igual 1em=16px, hacemos 1em=10px*/
+    color: var(--dark-solid);  
+}
+
+a {
+    text-decoration: none;
+    font-size: 2em; /*20px*/
+    font-family: inherit;
+    color: inherit;
+}
+
+header,
+footer{
+    font-family: var(--alternative-font);
+    color: var(--light-font-solid);
+}
+
+ul, ol {
+    list-style-type: none;
+}
+
+p {
+    font-size: 1.8em; /*18px*/   
+}
+
+img{
+    width: 100%;
+}
+.container {
+    max-width: 1200px;
+    margin:0 auto;
+}
+
+
+/*VARIABLES*/
+
+:root {
+    /*Palette*/
+    --primary-solid :#FF3333;
+    --primary-900: rgb(255, 51, 51, 0.9);
+    --primary-500: rgb(255, 51, 51, 0.5);
+    --primary-300: rgb(255, 51, 51, 0.3);
+      
+    --seconary-solid: #1D84B5;
+    --seconary-900: rgb(29, 132, 181, 0.9);
+    --seconary-500: rgb(29, 132, 181, 0.5);
+    --seconary-300: rgb(29, 132, 181, 0.3);
+
+    --dark-solid: #1F1F1F;
+    --dark-900: rgb(31, 31, 31, 0.9);
+    --dark-600: rgb(31, 31, 31, 0.6);
+    --dark-300: rgb(31, 31, 31, 0.3);
+
+    --dark-bg-solid: #30343F;
+    --light-bg-solid: #FAFAFF;
+    --light-font-solid: #ffffff;
+
+    /*Typography*/
+    --base-font:'Inter', sans-serif;
+    --alternative-font: 'Raleway', sans-serif;
+
+    /*Font-sizes*/
+    --font-display: 4.6em;
+    --font-jumbo: 3.8em;
+    --font-xlarge: 3em;
+    --font-large: 2.4em;
+    --font-medium: 1.8em;
+    --font-small: 1.6em;
+    --font-xsmall: 1.4em;
+    
+    /*Spacing*/
+    --spacing-128: 12.8rem;     /*siempre 1rem=10px, en cambio 1em=10px puede varia por responsive */
+    --spacing-68: 6.8rem;
+    --spacing-36: 3.6rem;
+    --spacing-28: 2.8rem;
+    --spacing-24: 2.4rem;
+    --spacing-20: 2rem;
+    --spacing-16: 1.6rem;
+    --spacing-12: 1.2rem;
+    --spacing-8: 0.8rem;
+}
+
+/*HEADER*/
+header{
+    background-color: var(--dark-bg-solid);
+    padding: var(--spacing-36);
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar_logo{
+    max-width: 300px;
+}
+
+.navbar_menu{
+   display: flex; 
+   align-items: center;
+   gap: var(--spacing-20);
+}
+
+.navbar_item{
+    
+}
+
+.navbar_link{
+   font-size: var(--font-medium); 
+   text-transform: uppercase;
+   padding: var(--spacing-8) var(--spacing-16);
+   display: inline-block;
+   transition: background .3s ease-in-out;
+   position: relative;
+
+}
+
+.navbar_link:hover{
+    background-color: var(--primary-900);
+}
+
+.with_icon{
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+}
+
+.with_submenu:hover .submenu{
+    display: block;
+}
+
+.submenu{
+    display: none;
+    width: 300px;
+    position: absolute;
+    background-color: var(--dark-bg-solid);
+    z-index: 3;
+}
+
+.submenu_link{
+    display: block;
+    padding: var(--spacing-8) var(--spacing-16);
+    font-size: var(--font-medium);
+    transition: background .3s ease-in-out;
+}
+
+.submenu_link:hover{
+    background-color: var(--primary-900);
+}
+
+.navbar_cart{
+    
+}
+/*COLLECTIONS*/
+.collection {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    padding: var(--spacing-16);
+}
+
+.collection_content{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-24);
+}
+
+.collection_title_licence{
+    font-family: var(--alternative-font);
+    font-size: var(--font-display);
+    font-weight: 500;
+}
+
+.collection_title_item{
+    font-family: var(--alternative-font);
+    font-size: var(--font-display);
+    font-weight: 700;
+}
+
+.collection_text_description{
+    font-family: var(--alternative-font);
+    font-size: var(--font-large);
+    font-weight: 400;
+}
+
+.collection_text_price{
+    font-family: var(--alternative-font);
+    font-size: var(--font-display);
+    font-weight: 400;
+}
+
+.collection_add_item{
+
+}
+
+.input{
+    text-align-last: center;
+}
+
+.button{
+    background:var(--primary-solid);
+    border: none;
+    text-align: center;
+    font-family: var(--alternative-font);
+    font-weight: 400;
+    color: var(--light-font-solid);
+    cursor: pointer;
+}
+
+.collection_pay{
+    color: #1D84B5;
+    font-family: var(--alternative-font);
+    font-weight: 700;
+    font-size: var(--font-xsmall);
+}
+.span{
+    text-decoration: underline;
+}
+
+/*SLIDER*/
+
+.slider{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-36);
+    margin: var(--spacing-68) auto;
+}
+
+.slider_title{
+    font-family: var(--alternative-font);
+    font-size: var(--font-display);
+    text-transform: uppercase;
+}
+
+.slider_items{
+    display: flex;
+    gap: var(--spacing-24);
+}
+
+.card-item_cover{
+    display: flex;
+    position: relative;/*esto para posicionar .card-item tag sino dependeria del body*/
+}
+
+.card-item_tag{
+    font-size: var(--font-xsmall);
+    text-transform: uppercase;
+    background-color: var(--primary-solid);
+    color: var(--light-font-solid);
+    padding: var(--spacing-8) var(--spacing-12);
+    position: absolute;
+    right: 0;
+
+}
+
+.card-item_cover img {
+    animation: fade .7s;
+}
+
+.card-item_img-back{
+    display: none;
+}
+
+.card-item_cover:hover .card-item_img-back{
+    display: block;
+}
+
+.card-item_cover:hover .card-item_img-front{
+    display: none;
+}
+
+.card-item_content{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-12);
+    padding: var(--spacing-16);
+}
+
+.card-item_licence{
+    font-size: var(--font-xsmall);
+    font-weight: 500;
+}
+
+.card-item_name{
+    font-size: var(--font-medium);
+    font-weight: 700;
+}
+
+.card-item_price{
+    font-size: var(--font-small);
+}
+
+.card-item_promo{
+    font-size: var(--font-xsmall);
+    color: var(--seconary-solid);
+    font-weight: 700;
+}
+
+/*footer*/
+.footer{
+    background-color: var(--dark-bg-solid);
+    padding: var(--spacing-68);
+}
+
+.footer_copy{
+    margin-top: var(--spacing-36);
+    text-align: center;
+}
+
+@keyframes fade{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
