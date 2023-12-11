@@ -40,8 +40,6 @@ app.use(session({
   saveUninitialized: true
 }));
 
-
-
 // Conexión a la base de datos con mysql2
 const { conn } = require('./src/config/database');
 
