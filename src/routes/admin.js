@@ -6,23 +6,21 @@ const createProductController = require('../controllers/createProductController'
 const editProductController = require('../controllers/editProductController');
 const deleteProductController = require('../controllers/deleteProductController');
 
-// Comentado para desactivar temporalmente la validación de autenticación
-// const authMiddleware = require('../middlewares/authMiddleware'); // Importa el middleware de autenticación
 
-// Ruta protegida por autenticación
-router.get('/dashboard', /*authMiddleware,*/ dashboardController.getProducts);
+// Rutas para el panel de administración
+router.get('/dashboard', dashboardController.getProducts);
 // Manejar solicitudes POST a /admin/dashboard (para la búsqueda)
-router.post('/dashboard', /*authMiddleware,*/ dashboardController.getProducts);
+router.post('/dashboard', dashboardController.getProducts);
 
 // Ruta para mostrar el formulario de creación de producto
-router.get('/createProduct', /*authMiddleware,*/ createProductController.showCreateForm);
+router.get('/createProduct', createProductController.showCreateForm);
 
 // Ruta para procesar el formulario de creación de producto
-router.post('/createProduct', /*authMiddleware,*/ createProductController.processCreateForm);
+router.post('/createProduct', createProductController.processCreateForm);
 
-router.get('/editProduct/:id', /*authMiddleware,*/ editProductController.showEditForm);
-router.post('/editProduct/:id', /*authMiddleware,*/ editProductController.processEditForm);
+router.get('/editProduct/:id', editProductController.showEditForm);
+router.post('/editProduct/:id', editProductController.processEditForm);
 
-router.post('/deleteProduct/:id', /*authMiddleware,*/ deleteProductController.processDelete);
+router.post('/deleteProduct/:id', deleteProductController.processDelete);
 
 module.exports = router;
