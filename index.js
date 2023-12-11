@@ -35,9 +35,9 @@ app.use(upload.array('imagenes', 5)); // Multer para manejar campos de archivos
 
 // Configuración de la sesión
 app.use(session({
-  secret: 'secreto_5112634128dfa',
+  secret: '5112634128dfa',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
 }));
 
 // Conexión a la base de datos con mysql2
