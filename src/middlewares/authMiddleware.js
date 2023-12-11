@@ -6,7 +6,7 @@ const authMiddleware = (req, res, next) => {
   // Verifica si hay un usuario en la sesión
   if (!req.session || !req.session.user) {
     console.log('Usuario no autenticado. Redirigiendo...');
-    return res.redirect('http://localhost:3000/auth/login'); // O redirige a la página
+    return res.redirect('./auth/login'); // O redirige a la página
   }
 
   // Usuario autenticado, permite el acceso
