@@ -37,16 +37,12 @@ app.use(upload.array('imagenes', 5)); // Multer
 app.use(session({
   secret: 'secreto_5112634128dfa',
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   cookie: {
     secure: false, 
-    maxAge: 3600000, // Tiempo de expiración en milisegundos (1 hora en este caso)
+    maxAge: 3600000, // Tiempo
   },
 }));
-
-
-// Conexión a la base de datos con mysql2
-const { conn } = require('./src/config/database');
 
 // Middleware para agregar la conexión a cada solicitud
 app.use((req, res, next) => {
@@ -58,6 +54,9 @@ app.use((req, res, next) => {
 app.use('/', require('./src/routes/index'));
 app.use('/auth', require('./src/routes/auth'));
 app.use('/admin', require('./src/routes/admin'));
+
+// Conexión a la base de datos con mysql2
+const { conn } = require('./src/config/database');
 
 // Inicia el servidor en el puerto 3000
 const PORT = process.env.PORT || 3000;
