@@ -39,7 +39,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   cookie: {
-    secure: true, //
+    secure: false, //
     sameSite: 'none', // cookies de terceros
     maxAge: 3600000, // 1 hora
   },
