@@ -61,8 +61,9 @@ authController.processRegister = async (req, res) => {
   }
 };
 
-
-
+authController.logout = (req, res) => {
+  
+};
 
 
 module.exports = authController;
