@@ -61,9 +61,18 @@ authController.processRegister = async (req, res) => {
   }
 };
 
+// Cerrar sesión
 authController.logout = (req, res) => {
-  
+  // Destruir la sesión
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Error al cerrar sesión:', err);
+      return res.status(500).send('Error al cerrar sesión');
+    }
+    // Redirigir a la página de inicio de sesión u otra página después de cerrar sesión
+    res.redirect('/auth/login');
+  });
 };
 
-
 module.exports = authController;
+
