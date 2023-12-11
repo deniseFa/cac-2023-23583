@@ -37,7 +37,7 @@ app.use(upload.array('imagenes', 5)); // Multer para manejar campos de archivos
 app.use(session({
   secret: 'secreto_5112634128dfa',
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   cookie: {
     maxAge: 3600000, // 1 hora 
     secure: true, 
