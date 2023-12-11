@@ -4,14 +4,15 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const pool = mysql.createPool({
-  host: process.env.HOST || 'srv1015.hstgr.io',
-  user: process.env.USER || 'u762466157_funko',
-  password: process.env.PASS || 'CodoACodo2',
-  database: process.env.DB || 'u762466157_funko',
+  host: process.env.HOST || 'sql10.freesqldatabase.com',
+  user: process.env.USER || 'sql10627826',
+  password: process.env.PASS || 'YH6I5nV7ny',
+  database: process.env.DB || 'sql10627826',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
 });
+
 
 const promisePool = pool.promise();
 
