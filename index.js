@@ -20,10 +20,11 @@ app.use(session({
   saveUninitialized: true,
   cookie: {
     secure: false, //
-    sameSite: 'none', // cookies de terceros
+    sameSite: 'strict', // Cambiado a 'strict'
     maxAge: 3600000, // 1 hora
   },
 }));
+
 
 // Configuración de multer para manejar archivos
 const storage = multer.diskStorage({
