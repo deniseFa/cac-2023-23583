@@ -39,8 +39,8 @@ app.use(session({
   resave: false,
   saveUninitialized: true,  // Cambiado a true
   cookie: {
-    secure: false, //
-    sameSite: 'none', // cookies de terceros
+    secure: true, //
+    sameSite: 'lax', // cookies de terceros
     maxAge: 3600000, // 1 hora
   },
 }));
