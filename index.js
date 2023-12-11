@@ -31,13 +31,13 @@ const upload = multer({ storage });
 // Configuración de body-parser para analizar el cuerpo de las solicitudes
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(upload.array('imagenes', 5)); // Multer para manejar campos de archivos
+app.use(upload.array('imagenes', 5)); // Multer 
 
 // Configuración de la sesión
 app.use(session({
   secret: 'secreto_5112634128dfa',
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: false
 }));
 
 // Conexión a la base de datos con mysql2
