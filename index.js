@@ -37,8 +37,13 @@ app.use(upload.array('imagenes', 5)); // Multer
 app.use(session({
   secret: 'secreto_5112634128dfa',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: true,
+  cookie: {
+    secure: true, 
+    maxAge: 3600000, // Tiempo de expiración en milisegundos (1 hora en este caso)
+  },
 }));
+
 
 // Conexión a la base de datos con mysql2
 const { conn } = require('./src/config/database');
