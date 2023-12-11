@@ -25,6 +25,8 @@
     - `itemController.js`: Controlador para los elementos
     - `menuController.js`: Controlador del menú
     - `shopController.js`: Controlador de la tienda
+  - **middleware:** Middleware de la aplicación
+    - `authMiddleware.js`: Middleware de autenticación
   - **routes:** Rutas de la aplicación
     - `admin.js`: Rutas para la administración
     - `auth.js`: Rutas de autenticación
