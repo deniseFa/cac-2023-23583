@@ -6,12 +6,24 @@ const session = require('express-session');
 const multer = require('multer'); // Agregamos multer para manejar archivos
 const databaseConfig = require('./src/config/database');
 
-// Configuración para servir archivos estáticos desde las carpetas 'public' y 'src/public'
-app.use(express.static(path.join(__dirname, 'public')));
-
 // Configuración de EJS como motor de plantillas
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'src', 'views'));
+
+// Conexión a la base de datos con mysql2
+const { conn } = require('./src/config/database');
+
+// Configuración de la sesión
+app.use(session({
+  secret: 'secreto_5112634128dfa',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secure: false, //
+    sameSite: 'none', // cookies de terceros
+    maxAge: 3600000, // 1 hora
+  },
+}));
 
 // Configuración de multer para manejar archivos
 const storage = multer.diskStorage({
@@ -33,31 +45,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(upload.array('imagenes', 5)); // Multer 
 
-// Configuración de la sesión
-app.use(session({
-  secret: 'secreto_5112634128dfa',
-  resave: false,
-  saveUninitialized: true,
-  cookie: {
-    secure: false, //
-    sameSite: 'none', // cookies de terceros
-    maxAge: 3600000, // 1 hora
-  },
-}));
-
 // Middleware para agregar la conexión a cada solicitud
 app.use((req, res, next) => {
   req.mysql = conn;
   next();
 });
 
+// Configuración para servir archivos estáticos desde las carpetas 'public' y 'src/public'
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Rutas de la aplicación
 app.use('/', require('./src/routes/index'));
 app.use('/auth', require('./src/routes/auth'));
 app.use('/admin', require('./src/routes/admin'));
-
-// Conexión a la base de datos con mysql2
-const { conn } = require('./src/config/database');
 
 // Inicia el servidor en el puerto 3000
 const PORT = process.env.PORT || 3000;
