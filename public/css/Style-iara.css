@@ -573,3 +573,43 @@ h3.sub-titulo-admin {
 .boton-y-terminos {
     padding: 1em 0 45px;
 }
+
+
+
+/*otro*/
+
+.imagenes {
+    position: relative;
+    width: 100%;
+}
+
+
+.imagenes img {
+    width: 100%;
+}
+
+img:hover>.imagen-1 {
+    visibility: hidden;
+}
+
+img.imagen-2 {
+    position: absolute;
+    z-index: 9;
+    left: 0;
+    top: 0;
+   opacity: 0;
+}
+
+
+.imagenes:hover>.imagen-1 {
+    opacity: 0;
+    transition: 1s;
+}
+
+
+.imagenes:hover> img.imagen-2 {
+    opacity: 1;
+    transition: 1s;
+}
+
+
