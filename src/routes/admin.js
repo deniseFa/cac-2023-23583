@@ -6,8 +6,10 @@ const createProductController = require('../controllers/createProductController'
 const editProductController = require('../controllers/editProductController');
 const deleteProductController = require('../controllers/deleteProductController');
 
+// Importa el middleware de autenticación (comentado para desactivarlo temporalmente)
+// const authMiddleware = require('../middlewares/authMiddleware');
 
-// Rutas para el panel de administración
+// Ruta sin autenticación
 router.get('/dashboard', dashboardController.getProducts);
 // Manejar solicitudes POST a /admin/dashboard (para la búsqueda)
 router.post('/dashboard', dashboardController.getProducts);
@@ -24,3 +26,6 @@ router.post('/editProduct/:id', editProductController.processEditForm);
 router.post('/deleteProduct/:id', deleteProductController.processDelete);
 
 module.exports = router;
+
+
+

@@ -13,4 +13,5 @@ router.post('/register', authController.processRegister);
 // Ruta para cerrar sesión
 router.get('/logout', authController.logout);
 
+
 module.exports = router;
