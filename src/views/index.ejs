@@ -1,115 +1,68 @@
 <%- include('partials/headerFront.ejs') %>
 
-<div class="banner-principal">
-                <div class="texto-del-banner">
-                    <h1>Nuevos Ingresos</h1>
-                    <p>Descubrí el próximo Funko Pop de tu colección</p>
-                    <a href="/shop" class="boton-slider">SHOP</a>
-                    
-                </div>
+<div class="container-fluid">
+    <div class="row centro-flex">
+        <div class="col-md-6">
+            <img src="img/star-wars/baby-yoda-1.webp" alt="trooper-1.webp">
+        </div>
+        <div class="col-md-6">
+
+                <p class="categoria-producto">STAR WARS</p>
+                <h1 class="titulo-producto">BABY YODA BLUEBALL</h1>
+                <p class="texto-producto">Figura coleccionable de Baby Yoda (Grogu) - The Mandalorian Saga, edición limitada.</p>
+                <p class="precio-producto">$ 1799,99</p>
+
+            <div class="row centro-flex">
+                <form action="">
+                    <div class="col-md-8">
+                        <div class="row centro-flex">
+                         <div class="col-md-6 formulario-subir-bajar">
+                            <input class="cantidad-producto" type="number" min="1" max="50" placeholder="1">
+                            <div class="cositos-de-sumar">
+                              <div class="subir-bajar" onclick="sumar(this)">+</div>
+                              <div class="subir-bajar" onclick="restar(this)">-</div>
+                            </div>
+                          </div>
+                            <div class="col-md-6">
+                                <button type="submit" class="enviar-compra"><a href="carrito">Agregar al carrito</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+     
             </div>
 
-    <main>
-<div class="container-fluid contenedor-funko">
-    <div class="row flex-box-especial">
-        <div class="col-md-6">
-            <article>
-                <h3 class="titulo-home-funko">Star Wars & The Mandalorian</h3>
-                <p class="detalles-funkos-home">Disfruta de una saga que sigue agregando personajes a su colección.</p>
-                <hr class="linea-home">
-                <a class="ver-coleccion" href="/shop">VER COLECCIÓN</a>
-            </article>
-        </div>
-        <div class="col-md-6">
-            <picture>
-                <img class="imagen-funko-home" src="./img/star-wars/baby-yoda-1.webp" alt="Figura coleccionable Funko de Grogu de la serie The Mandalorian">
-            </picture>
         </div>
     </div>
-    <div class="row flex-box-especial">
-        <div class="col-md-6">
-            <picture>
-                <img class="imagen-funko-home" src="./img/pokemon/vulpix-1.webp" alt="Figura coleccionable Funko de Grogu de la serie The Mandalorian">
-            </picture>
-        </div>
-        <div class="col-md-6">
-             <article>
-                <h3 class="titulo-home-funko">POKEMON INDIGO</h3>
-                <p class="detalles-funkos-home">Atrapa todos los que puedas y disfruta de una colección llena de amigos.</p>
-                <hr class="linea-home">
-                <a class="ver-coleccion" href="/shop">VER COLECCIÓN</a>
-            </article>
-        </div>
-    </div>
-    <div class="row flex-box-especial">
-        <div class="col-md-6">
-              <article>
-                <h3 class="titulo-home-funko">HARRY POTTER</h3>
-                <p class="detalles-funkos-home">Revive los recuerdos de una saga llena de magia y encanto.</p>
-                <hr class="linea-home">
-                <a class="ver-coleccion" href="/shop">VER COLECCIÓN</a>
-            </article>
-        </div>
-        <div class="col-md-6">
-             <picture>
-                <img class="imagen-funko-home" src="./img/harry-potter/snape-patronus-1.webp" alt="Figura coleccionable">
-            </picture>
-        </div>
-    </div>
-</div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-            <h3 class="titulo-home-funko" style="font-weight: 600;">Últimos lanzamientos</h3><br>
-              <div class="glide">
+
+
+  <div class="glide">
     <div class="glide__track" data-glide-el="track">
       <ul class="glide__slides">
-        <!-- Repite -->
-        <li class="glide__slide">
-          <a href="/item" class="productos-link">
-            <div class="banner-superior">Nuevo</div>
-            <img src="img/star-wars/trooper-1.webp" alt="trooper-1.webp">
-            <p class="categoria">STAR WARS</p>
-            <p class="titulo-producto">STORMTROOPER LIGHTSABER</p>
-            <p class="precio-producto">$ 1799,99</p>
-            <p class="cuotas">3 cuotas sin interés</p>
-          </a>
-        </li>
+       
+       <!-- Repite -->
+<% productos.forEach((producto) => { %>
+  <li class="glide__slide">
+    <a href="item" class="productos-link">
+      <% if (producto.discount) { %>
+        <div class="banner-superior">Nuevo</div>
+      <% } %>
+       <div class="imagenes">
+                    <img src="img/<%= producto.image_front %>" alt="<%= producto.sku %>" class="imagen-1">
+                    <img src="img/<%= producto.image_back %>" alt="<%= producto.sku %>" class="imagen-2">
+                  </div>
+      <p class="categoria"><%= producto.licence_name %></p>
+      <p class="titulo-producto"><%= producto.product_name %></p>
+      <p class="precio-producto">$ <%= typeof producto.price === 'number' ? producto.price.toFixed(2) : producto.price %></p>
 
-        <li class="glide__slide">
-          <a href="/item" class="productos-link">
-            <div class="banner-superior">Nuevo</div>
-            <img src="img/pokemon/pidgeotto-1.webp" alt="pidgeotto-1.webp">
-            <p class="categoria">POKEMON</p>
-            <p class="titulo-producto">PIDGEOTTO</p>
-            <p class="precio-producto">$ 1799,99</p>
-            <p class="cuotas">3 cuotas sin interés</p>
-          </a>
-        </li>
+      <% if (producto.dues) { %>
+        <p class="cuotas"><%= producto.dues %> cuotas sin interés</p>
+      <% } %>
+    </a>
+  </li>
+<% }); %>
+<!-- Fin de la repetición -->
 
-        <li class="glide__slide">
-          <a href="/item" class="productos-link">
-            <div class="banner-superior">Nuevo</div>
-            <img src="img/harry-potter/luna-1.webp" alt="trooper-1.webp">
-            <p class="categoria">HARRY POTTER</p>
-            <p class="titulo-producto">LUNA LOVEGOOD LION MASK</p>
-            <p class="precio-producto">$ 1799,99</p>
-            <p class="cuotas">3 cuotas sin interés</p>
-          </a>
-        </li>
-
-        <li class="glide__slide">
-          <a href="/item" class="productos-link">
-            <div class="banner-superior">Nuevo</div>
-            <img src="img/star-wars/bobbafeth-1.webp" alt="trooper-1.webp">
-            <p class="categoria">STAR WARS</p>
-            <p class="titulo-producto">BOBA FETT FIGHTER</p>
-            <p class="precio-producto">$ 1799,99</p>
-            <p class="cuotas">3 cuotas sin interés</p>
-          </a>
-        </li>
-
-        <!-- Fin de la repetición -->
       </ul>
     </div>
 
@@ -149,14 +102,11 @@
       }).mount();
     </script>
   </div>
-        </div>
 
-    </div>
+
+
+
 </div>
 
-
-
-
-    </main>
 
 <%- include('partials/footer.ejs') %>
