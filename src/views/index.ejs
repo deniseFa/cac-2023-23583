@@ -1,101 +1,161 @@
 <%- include('partials/headerFront.ejs') %>
-    <section>
-        <article>
-            <h3>Nuevos Ingresos</h3>
-            <p>Descubrí el próximo Funko Pop de tu colección</p>
-            <a href="./pages/shop.html">SHOP</a>
-            
-        </article>
-    </section>
+
+<div class="banner-principal">
+                <div class="texto-del-banner">
+                    <h1>Nuevos Ingresos</h1>
+                    <p>Descubrí el próximo Funko Pop de tu colección</p>
+                    <a href="/shop" class="boton-slider">SHOP</a>
+                    
+                </div>
+            </div>
+
     <main>
-        <section>
+<div class="container-fluid contenedor-funko">
+    <div class="row flex-box-especial">
+        <div class="col-md-6">
             <article>
-                <h3>Star Wars & The Mandalorian</h3>
-                <p>Disfruta de una saga que sigue agregando personajes a su colección.</p>
-                <a href="#">VER COLECCIÓN</a>
+                <h3 class="titulo-home-funko">Star Wars & The Mandalorian</h3>
+                <p class="detalles-funkos-home">Disfruta de una saga que sigue agregando personajes a su colección.</p>
+                <hr class="linea-home">
+                <a class="ver-coleccion" href="/shop">VER COLECCIÓN</a>
             </article>
-
+        </div>
+        <div class="col-md-6">
             <picture>
-                <img src="./img/star-wars/baby-yoda-1.webp" alt="Figura coleccionable Funko de Grogu de la serie The Mandalorian">
+                <img class="imagen-funko-home" src="./img/star-wars/baby-yoda-1.webp" alt="Figura coleccionable Funko de Grogu de la serie The Mandalorian">
             </picture>
-        </section>
-        <section>
-            <article>
-                <h3>POKEMON INDIGO</h3>
-                <p>Atrapa todos los que puedas y disfruta de una colección llena de amigos.</p>
-                <a href="#">VER COLECCIÓN</a>
+        </div>
+    </div>
+    <div class="row flex-box-especial">
+        <div class="col-md-6">
+            <picture>
+                <img class="imagen-funko-home" src="./img/pokemon/vulpix-1.webp" alt="Figura coleccionable Funko de Grogu de la serie The Mandalorian">
+            </picture>
+        </div>
+        <div class="col-md-6">
+             <article>
+                <h3 class="titulo-home-funko">POKEMON INDIGO</h3>
+                <p class="detalles-funkos-home">Atrapa todos los que puedas y disfruta de una colección llena de amigos.</p>
+                <hr class="linea-home">
+                <a class="ver-coleccion" href="/shop">VER COLECCIÓN</a>
             </article>
-
-            <picture>
-                <img src="./img/pokemon/vulpix-1.webp" alt="Figura coleccionable Funko de Vulpix del anime Pokemon">
-            </picture>
-        </section>
-        
-        <section>
-            <article>
-                <h3>HARRY POTTER</h3>
-                <p>Revive los recuerdos de una saga llena de magia y encanto.</p>
-                <a href="#">VER COLECCIÓN</a>
+        </div>
+    </div>
+    <div class="row flex-box-especial">
+        <div class="col-md-6">
+              <article>
+                <h3 class="titulo-home-funko">HARRY POTTER</h3>
+                <p class="detalles-funkos-home">Revive los recuerdos de una saga llena de magia y encanto.</p>
+                <hr class="linea-home">
+                <a class="ver-coleccion" href="/shop">VER COLECCIÓN</a>
             </article>
-
-            <picture>
-                <img src="./img/harry-potter/snape-patronus-1.webp" alt="Figura coleccionable Funko del Patronus de Snape de la saga de películas de Harry Potter">
+        </div>
+        <div class="col-md-6">
+             <picture>
+                <img class="imagen-funko-home" src="./img/harry-potter/snape-patronus-1.webp" alt="Figura coleccionable">
             </picture>
-        </section>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="titulo-home-funko" style="font-weight: 600;">Últimos lanzamientos</h3><br>
+              <div class="glide">
+    <div class="glide__track" data-glide-el="track">
+      <ul class="glide__slides">
+        <!-- Repite -->
+        <li class="glide__slide">
+          <a href="/item" class="productos-link">
+            <div class="banner-superior">Nuevo</div>
+            <img src="img/star-wars/trooper-1.webp" alt="trooper-1.webp">
+            <p class="categoria">STAR WARS</p>
+            <p class="titulo-producto">STORMTROOPER LIGHTSABER</p>
+            <p class="precio-producto">$ 1799,99</p>
+            <p class="cuotas">3 cuotas sin interés</p>
+          </a>
+        </li>
 
-        <section>
-            <h2>ÚLTIMOS LANZAMIENTOS</h2>
-            <ul>
-                <li>
-                    <article>
-                        <a href="#">
-                            <picture>
-                                <img src=".img/star-wars/trooper-1.webp" alt="Figura coleccionable Funko de un Stormtrooper">
-                            </picture>
-                            <div>
-                                <p>STAR WARS</p>
-                                <h4>STORMTROOPER LIGHTSABER</h4>
-                                <p>$ 1799,99</p>
-                                <p>3 CUOTAS SIN INTERÉS</p>
-                            </div>
+        <li class="glide__slide">
+          <a href="/item" class="productos-link">
+            <div class="banner-superior">Nuevo</div>
+            <img src="img/pokemon/pidgeotto-1.webp" alt="pidgeotto-1.webp">
+            <p class="categoria">POKEMON</p>
+            <p class="titulo-producto">PIDGEOTTO</p>
+            <p class="precio-producto">$ 1799,99</p>
+            <p class="cuotas">3 cuotas sin interés</p>
+          </a>
+        </li>
 
-                        </a>
-                    </article>
-                </li>
-                <li>
-                    <article>
-                        <a href="#">
-                            <picture>
-                                <img src=".img/pokemon/pidgeotto-1.webp" alt="Figura coleccionable Funko de un Pidgeotto">
-                            </picture>
-                            <div>
-                                <p>POKEMON</p>
-                                <h4>PIDGEOTTO</h4>
-                                <p>$ 1799,99</p>
-                                <p>3 CUOTAS SIN INTERÉS</p>
-                            </div>
+        <li class="glide__slide">
+          <a href="/item" class="productos-link">
+            <div class="banner-superior">Nuevo</div>
+            <img src="img/harry-potter/luna-1.webp" alt="trooper-1.webp">
+            <p class="categoria">HARRY POTTER</p>
+            <p class="titulo-producto">LUNA LOVEGOOD LION MASK</p>
+            <p class="precio-producto">$ 1799,99</p>
+            <p class="cuotas">3 cuotas sin interés</p>
+          </a>
+        </li>
 
-                        </a>
-                    </article>
-                </li>
-                <li>
-                    <article>
-                        <a href="#">
-                            <picture>
-                                <img src=".img/harry-potter/luna-1.webp" alt="Figura coleccionable Funko de Luna Lovegood">
-                            </picture>
-                            <div>
-                                <p>HARRY POTTER</p>
-                                <h4>LUNA LOVEGOOD LION MASK</h4>
-                                <p>$ 1799,99</p>
-                                <p>3 CUOTAS SIN INTERÉS</p>
-                            </div>
+        <li class="glide__slide">
+          <a href="/item" class="productos-link">
+            <div class="banner-superior">Nuevo</div>
+            <img src="img/star-wars/bobbafeth-1.webp" alt="trooper-1.webp">
+            <p class="categoria">STAR WARS</p>
+            <p class="titulo-producto">BOBA FETT FIGHTER</p>
+            <p class="precio-producto">$ 1799,99</p>
+            <p class="cuotas">3 cuotas sin interés</p>
+          </a>
+        </li>
 
-                        </a>
-                    </article>
-                </li>
-            </ul>
-        </section>
+        <!-- Fin de la repetición -->
+      </ul>
+    </div>
+
+    <!-- flechas -->
+    <div class="glide__arrows" data-glide-el="controls">
+      <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+        <i class="fas fa-arrow-left"></i> 
+      </button>
+      <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+        <i class="fas fa-arrow-right"></i> 
+      </button>
+    </div>
+
+    <!-- Configuración de Glide.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+    <script src="https://unpkg.com/@glidejs/glide@3.6.0/dist/glide.js"></script>
+    <script>
+      new Glide('.glide', {
+        type: 'carousel',    // Tipo de movimiento
+        startAt: 0,          // Comienza desde el primer slide
+        perView: 3,          // Muestra 3 slides a la vez
+        focusAt: 'center',   // Centra el slide activo
+        gap: 10,             // Espacio entre los slides
+        autoplay: false,     // Desactiva la reproducción automática
+        hoverpause: true,    // Pausa la reproducción automática al pasar el ratón
+        keyboard: true,      // Permite cambiar los slides con las flechas del teclado
+        bound: false,        // No limita la cantidad de slides cuando se utiliza type: 'carousel'
+        swipeThreshold: 80,  // Distancia mínima de desplazamiento para cambiar el slide
+        dragThreshold: 120,  // Distancia mínima de arrastre para cambiar el slide
+        perTouch: 3,         // Mueve hasta 3 slides por toque/swipe
+        touchRatio: 0.5,     // Proporción de movimiento entre swipe y drag
+        touchAngle: 45,      // Ángulo requerido para activar el movimiento de los slides
+        animationDuration: 400,  // Duración de la animación
+        rewind: true,        // Permite el rebobinado al llegar al primer o último slide
+        rewindDuration: 800, // Duración de la animación de rebobinado
+        animationTimingFunc: 'cubic-bezier(0.165, 0.840, 0.440, 1.000)'  // Función de temporización de la animación
+      }).mount();
+    </script>
+  </div>
+        </div>
+
+    </div>
+</div>
+
+
+
 
     </main>
 
