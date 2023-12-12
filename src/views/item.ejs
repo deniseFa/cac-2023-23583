@@ -39,41 +39,30 @@
   <div class="glide">
     <div class="glide__track" data-glide-el="track">
       <ul class="glide__slides">
-        <!-- Repite -->
-        <li class="glide__slide">
-          <a href="item.html" class="productos-link">
-            <div class="banner-superior">Nuevo</div>
-            <img src="img/star-wars/trooper-1.webp" alt="trooper-1.webp">
-            <p class="categoria">STAR WARS</p>
-            <p class="titulo-producto">STORMTROOPER LIGHTSABER</p>
-            <p class="precio-producto">$ 1799,99</p>
-            <p class="cuotas">3 cuotas sin interés</p>
-          </a>
-        </li>
+       
+       <!-- Repite -->
+<% productos.forEach((producto) => { %>
+  <li class="glide__slide">
+    <a href="item" class="productos-link">
+      <% if (producto.discount) { %>
+        <div class="banner-superior">Nuevo</div>
+      <% } %>
+       <div class="imagenes">
+                    <img src="img/<%= producto.image_front %>" alt="<%= producto.sku %>" class="imagen-1">
+                    <img src="img/<%= producto.image_back %>" alt="<%= producto.sku %>" class="imagen-2">
+                  </div>
+      <p class="categoria"><%= producto.licence_name %></p>
+      <p class="titulo-producto"><%= producto.product_name %></p>
+      <p class="precio-producto">$ <%= typeof producto.price === 'number' ? producto.price.toFixed(2) : producto.price %></p>
 
-        <li class="glide__slide">
-          <a href="item.html" class="productos-link">
-            <div class="banner-superior">Nuevo</div>
-            <img src="img/pokemon/pidgeotto-1.webp" alt="pidgeotto-1.webp">
-            <p class="categoria">POKEMON</p>
-            <p class="titulo-producto">PIDGEOTTO</p>
-            <p class="precio-producto">$ 1799,99</p>
-            <p class="cuotas">3 cuotas sin interés</p>
-          </a>
-        </li>
+      <% if (producto.dues) { %>
+        <p class="cuotas"><%= producto.dues %> cuotas sin interés</p>
+      <% } %>
+    </a>
+  </li>
+<% }); %>
+<!-- Fin de la repetición -->
 
-        <li class="glide__slide">
-          <a href="item.html" class="productos-link">
-            <div class="banner-superior">Nuevo</div>
-            <img src="img/harry-potter/luna-1.webp" alt="trooper-1.webp">
-            <p class="categoria">HARRY POTTER</p>
-            <p class="titulo-producto">LUNA LOVEGOOD LION MASK</p>
-            <p class="precio-producto">$ 1799,99</p>
-            <p class="cuotas">3 cuotas sin interés</p>
-          </a>
-        </li>
-
-        <!-- Fin de la repetición -->
       </ul>
     </div>
 
