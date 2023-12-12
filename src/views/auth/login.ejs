@@ -3,45 +3,46 @@
 <%- include('../partials/header.ejs') %>
 
 
-
+ 
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-4">
     </div>
     <div class="col-md-4">
-        <h2 class="titulo-admin">Ingresar a mi cuenta</h2>
+        <h2 class="titulo-admin" style="text-align: center;">Ingresar a mi cuenta</h2>
+        <% if (typeof error !== 'undefined' && error) { %>
+          <p style="color: red; text-align: center;"><%= error %></p>
+        <% } %>
 
         <form method="post" action="/auth/login">
           <div class="row">
-            <div class="col-md-4">
-              <label for="email" class="nombre-form">Email:</label>
+            <div class="col-md-4 flex-box-especial">
+              <label for="email" class="label-texto">Email:</label>
             </div>
-            <div class="col-md-8">
-              <input type="email" id="email" name="email" required placeholder="ejemplo@gmail.com" class="campo-form">
+            <div class="col-md-8 flex-box-especial">
+              <input type="email" id="email" name="email" required placeholder="ejemplo@gmail.com" class="formulario-bordes-rojo">
             </div>
           </div>
 
           <div class="row">
-            <div class="col-md-4">
-              <label for="password" class="nombre-form">Contraseña:</label>
+            <div class="col-md-4 flex-box-especial">
+              <label for="password" class="label-texto">Contraseña:</label>
             </div>
-            <div class="col-md-8">
-              <input type="password" id="password" name="password" required placeholder="••••••••" class="campo-form" minlength="3" maxlength="20">
+            <div class="col-md-8 flex-box-especial">
+              <input type="password" id="password" name="password" required placeholder="••••••••" class="formulario-bordes-rojo" minlength="3" maxlength="20">
             </div>
           </div>
 
           <div class="boton-y-terminos">
-            <button type="submit" class="botton-ingreso">Ingresar </button>
-            <input type="checkbox" name="aceptar" required>Recordarme
+            <button type="submit"  class="boton-enviar" >Ingresar </button>
+            <input type="checkbox" id="recordarme" name="aceptar" required> Recordarme
           </div>
 
-          <p><a href="#">Olvide mi contraseña</a> | <a href="register">Registrarme</a></p>
+          <p class="detalles"><a href="#">Olvide mi contraseña</a> | <a href="/auth/register">Registrarme</a></p>
 
       </form>
 
-        <% if (typeof error !== 'undefined' && error) { %>
-          <p style="color: red;"><%= error %></p>
-        <% } %>
+        
 
 
     </div>
