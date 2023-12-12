@@ -79,8 +79,11 @@
 				          <% if (producto.discount) { %>
 				            <div class="banner-superior">Nuevo</div>
 				          <% } %>
-				          <img src="img/<%= producto.image_front %>" alt="<%= producto.sku %>">
-				          <p class="categoria"><%= producto.category_name %></p>
+				          <div class="imagenes">
+					          <img src="img/<%= producto.image_front %>" alt="<%= producto.sku %>" class="imagen-1">
+					          <img src="img/<%= producto.image_back %>" alt="<%= producto.sku %>" class="imagen-2">
+				          </div>
+				          <p class="categoria"><%= producto.licence_name %></p>
 				          <p class="titulo-producto"><%= producto.product_name %></p>
 				          <p class="precio-producto">$ <%= typeof producto.price === 'number' ? producto.price.toFixed(2) : producto.price %></p>
 
