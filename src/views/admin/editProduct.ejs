@@ -1,5 +1,5 @@
 <!-- src/views/admin/dashboard.ejs -->
-<%- include('../partials/header.ejs') %>
+<%- include('../partials/headerBack.ejs') %>
 
 
 
@@ -9,22 +9,22 @@
     </div>
     <div class="col-md-8">
 
-  <h2>Editar Producto</h2>
+  <h2 class="titulo-admin">Editar Producto</h2>
 
   <!-- Formulario para editar un producto -->
  <form action="/admin/editProduct/<%= product.product_id %>" method="post">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 flex-box-especial">
       <label class="label-texto" for="categoria">Categoría:</label>
-        <select name="categoria" id="categoria" class="formulario-objetos buscador-completo">
+        <select name="categoria" id="categoria" class="formulario-objetos buscador-completo formulario-bordes-negros"  required>
             <% categorias.forEach((categoria) => { %>
               <option value="<%= categoria.category_id %>" <%= categoria.category_id === product.category_id ? 'selected' : '' %>><%= categoria.category_name %></option>
             <% }); %>
        </select>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 flex-box-especial">
       <label class="label-texto" for="licencia">Licencia:</label>
-        <select name="licencia" id="licencia">
+        <select name="licencia" id="licencia" class="formulario-objetos buscador-completo formulario-bordes-negros">
           <% licencias.forEach((licencia) => { %>
             <option value="<%= licencia.licence_id %>" <%= licencia.licence_id === product.licence_id ? 'selected' : '' %>><%= licencia.licence_name %></option>
           <% }); %>
@@ -32,40 +32,39 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 flex-box-especial">
       <label class="label-texto" for="nombre">Nombre del Producto:</label>
-        <input type="text" name="nombre" value="<%= product.product_name %>" required>
+        <input type="text" name="nombre" value="<%= product.product_name %>" required class="formulario-bordes-rojo">
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12">
-      <label class="label-texto" for="descripcion">Descripción del Producto:</label>
-        <textarea name="descripcion" rows="4" required><%= product.product_description %></textarea>
+    <div class="col-md-12 flex-box-especial">
+        <textarea name="descripcion" rows="4" required class="formulario-objetos buscador-completo formulario-bordes-negros"><%= product.product_description %></textarea>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-4 flex-box-especial">
       <label class="label-texto" for="sku">SKU:</label>
-        <input type="text" name="sku" value="<%= product.sku %>" required>
+        <input type="text" name="sku" value="<%= product.sku %>" required class="formulario-bordes-rojo">
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 flex-box-especial">
       <label class="label-texto" for="precio">Precio:</label>
-        <input type="number" name="precio" step="0.01" value="<%= product.price %>" required>
+        <input type="number" name="precio" step="0.01" value="<%= product.price %>" required class="formulario-bordes-rojo">
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2 flex-box-especial">
       <label class="label-texto" for="stock">Stock:</label>
-        <input type="number" name="stock" value="<%= product.stock %>" required>
+        <input type="number" name="stock" value="<%= product.stock %>" required class="formulario-bordes-rojo">
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-3 flex-box-especial">
       <label class="label-texto" for="descuento">Descuento:</label>
-        <input type="number" name="descuento" value="<%= product.discount %>">
+        <input type="number" name="descuento" value="<%= product.discount %>" class="formulario-bordes-rojo">
     </div>
-    <div class="col-md-6">
+    <div class="col-md-7 flex-box-especial">
 
       <label class="label-texto" for="cuotas">Cuotas:</label>
-        <select name="cuotas">
+        <select name="cuotas" class="formulario-objetos buscador-completo formulario-bordes-negros">
           <option value="3" <%= product.dues === 3 ? 'selected' : '' %>>3 cuotas sin interés</option>
           <option value="6" <%= product.dues === 6 ? 'selected' : '' %>>6 cuotas sin interés</option>
           <option value="9" <%= product.dues === 9 ? 'selected' : '' %>>9 cuotas sin interés</option>
@@ -74,8 +73,13 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 flex-box-especial">
         <label>Imágenes:</label> <input type="file" name="imagenes" accept="image/*" multiple disabled="">
+    </div>
+
+
+
+    <div class="col-md-12 flex-box-especial">
         <div class="imagenes-disenios">
           <div class="contenedor-imagen">
             <img src="/img<%= product.image_front %>" alt="Imagen frontal">
@@ -87,10 +91,12 @@
           </div>
         </div>
     </div>
+
+
   </div>
   <div class="row">
-    <div class="col-md-12">
-      <button type="submit">Modificar Producto</button>
+    <div class="col-md-12 flex-box-especial">
+      <button type="submit" class="boton-enviar">Modificar Producto</button>
     </div>
   </div>
 

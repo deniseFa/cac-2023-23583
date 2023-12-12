@@ -1,6 +1,6 @@
 <!-- src/views/admin/dashboard.ejs -->
 
-<%- include('../partials/header.ejs') %>
+<%- include('../partials/headerBack.ejs') %>
 
 <div class="container-fluid">
   <div class="row">
@@ -11,22 +11,22 @@
  <!-- Formulario de búsqueda -->
       <!-- Formulario de búsqueda -->
         <form action="/admin/dashboard" method="post" class="busqueda-form">
-          <label for="termino">Buscar:</label>
-          <input type="text" name="termino" id="termino" required>
-          <button type="submit">Buscar</button>
+          <button type="submit" class="icono-especial"><img src="/img/icons/search_icon.svg" alt=""></button>
+          <input type="text" name="termino" id="termino" required>          
         </form>
 
         <!-- Botón para limpiar la búsqueda -->
         <a href="/admin/dashboard" class="limpiar-busqueda">Limpiar búsqueda</a>
 
+        <div class="titulo-expansion">
+          <h2 class="titulo-admin" >Listado de Productos</h2>
+          <a href="/admin/createProduct" class="boton">Agregar <img src="/img/icons/more_icon.svg" alt=""></a>
+        </div>
 
-      <h2 class="titulo-admin" >Panel de Administración - Productos</h2>
-      <a href="/admin/createProduct" class="boton">Crear Producto Nuevo <img src="/img/icons/more_icon.svg" alt=""></a>
 
 
 
-
-  <table border="1" style="width: 100%;border: none;">
+  <table border="1" style="width: 100%;border: none;" class="tabla-productos">
     <thead>
       <tr>
         <th>ID</th>
@@ -43,10 +43,10 @@
         <td><%= producto.sku %></td>
         <td><%= producto.product_name %></td>
         <td><%= producto.category_name %> | <%= producto.licence_name %></td>
-        <td><a href="/admin/editProduct/<%= producto.product_id %>"><img src="/img/icons/edit_pencil.svg" alt="pencil"></a></td>
-        <td>
+        <td class="iconos-de-tabla"><a href="/admin/editProduct/<%= producto.product_id %>"><img src="/img/icons/edit_pencil.svg" alt="pencil"></a></td>
+        <td class="iconos-de-tabla">
           <form method="post" action="/admin/deleteProduct/<%= producto.product_id %>" onsubmit="return confirm('¿Estás seguro de que quieres borrar este producto?');">
-            <button type="submit"><img src="/img/icons/delete_trash.svg" alt=""></button>
+            <button type="submit"><img src="/img/icons/delete_trash.svg" alt="" class="icono-especial"></button>
           </form>
         </td>
       </tr>

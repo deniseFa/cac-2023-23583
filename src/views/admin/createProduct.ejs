@@ -1,5 +1,5 @@
 <!-- src/views/admin/dashboard.ejs -->
-<%- include('../partials/header.ejs') %>
+<%- include('../partials/headerBack.ejs') %>
 
 
 
@@ -9,23 +9,25 @@
     </div>
     <div class="col-md-8">
 
-  <h2>Crear un nuevo Item</h2>
+  <h2 class="titulo-admin" >Crear un nuevo Item</h2>
 
 
   <!-- Formulario para crear un nuevo producto -->
-  <form action="/admin/createProduct" method="post">
+  <form action="/admin/createProduct" method="post" id="productForm">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 flex-box-especial">
       <label class="label-texto" for="categoria">Categoría:</label>
-      <select name="categoria" id="categoria">
+      <select name="categoria" id="categoria" class="formulario-bordes-negros" required>
+        <option value="none" selected disabled hidden>Seleccionar</option>
         <% categorias.forEach((categoria) => { %>
           <option value="<%= categoria.category_id %>"><%= categoria.category_name %></option>
         <% }); %>
       </select>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 flex-box-especial">
       <label class="label-texto" for="licencia">Licencia:</label>
-            <select name="licencia" id="licencia">
+            <select name="licencia" id="licencia" class="formulario-bordes-negros" required>
+              <option value="none" selected disabled hidden>Seleccionar</option>
               <% licencias.forEach((licencia) => { %>
                 <option value="<%= licencia.licence_id %>"><%= licencia.licence_name %></option>
               <% }); %>
@@ -33,40 +35,39 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-8 flex-box-especial">
       <label class="label-texto" for="nombre">Nombre del Producto:</label>
-        <input type="text" name="nombre" required>
+        <input type="text" name="nombre" required class="formulario-bordes-rojo" placeholder="Nombre de ejemplo">
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12">
-      <label class="label-texto" for="descripcion">Descripción del Producto:</label>
-        <textarea name="descripcion" rows="4" required></textarea>
+    <div class="col-md-12 flex-box-especial">
+        <textarea name="descripcion" rows="4" required class="formulario-bordes-negros" placeholder="Descripción del producto"></textarea>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-4 flex-box-especial">
       <label class="label-texto" for="sku">SKU:</label>
-        <input type="text" name="sku" required>
+        <input type="text" name="sku" required class="formulario-bordes-rojo" placeholder="SK000001">
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 flex-box-especial">
       <label class="label-texto" for="precio">Precio:</label>
-        <input type="number" name="precio" step="0.01" required>
+        <input type="number"  min="1" name="precio" step="0.01" required class="formulario-bordes-rojo" placeholder="1000">
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2 flex-box-especial">
       <label class="label-texto" for="stock">Stock:</label>
-       <input type="number" name="stock" required>
+       <input type="number" min="1" name="stock" required class="formulario-bordes-rojo" placeholder="10"> 
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-3 flex-box-especial">
       <label class="label-texto" for="descuento">Descuento:</label>
-       <input type="number" name="descuento">
+       <input type="number" name="descuento" min="1" class="formulario-bordes-negros" placeholder="10%">
     </div>
-    <div class="col-md-6">
+    <div class="col-md-7 flex-box-especial">
 
       <label class="label-texto" for="cuotas">Cuotas:</label>
-        <select name="cuotas">
+        <select name="cuotas" class="formulario-bordes-negros">
             <option value="3">3 cuotas sin interés</option>
             <option value="6">6 cuotas sin interés</option>
             <option value="9">9 cuotas sin interés</option>
@@ -75,14 +76,15 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12">
-        <label for="imagenes">Imágenes:</label>
+    <div class="col-md-12 flex-box-especial">
+        <label for="imagenes" class="label-texto">Imágenes:</label>
         <input type="file" name="imagenes" accept="image/*" multiple disabled="">
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12">
-      <button type="submit">Modificar Producto</button>
+    <div class="col-md-12 flex-box-especial">
+      <button type="submit" class="boton-enviar">Agregar Producto</button>
+      <button type="button" class="boton-enviar" onclick="limpiarFormulario()">Limpiar</button>
     </div>
   </div>
 
@@ -97,5 +99,13 @@
 </div>
 
 </div>
+
+
+<script>
+  function limpiarFormulario() {
+    document.getElementById("productForm").reset();
+  }
+</script>
+
 
 <%- include('../partials/footer.ejs') %>
