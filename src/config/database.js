@@ -9,11 +9,9 @@ const pool = mysql.createPool({
   password: process.env.PASS || 'CodoACodo2',
   database: process.env.DB || 'u762466157_funko',
   waitForConnections: true,
-  connectionLimit: 20,
+  connectionLimit: 10,
   queueLimit: 0,
 });
-
-
 
 const promisePool = pool.promise();
 
