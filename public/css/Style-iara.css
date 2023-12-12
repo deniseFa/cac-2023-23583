@@ -389,3 +389,187 @@ button.enviar-compra>a {
     text-decoration: none;
     color: white;
 }
+
+
+
+/*tabla*/
+
+h2.titulo-admin {
+    font-size: 30px;
+    font-weight: 700;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.titulo-expansion {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 2em 0px;
+}
+
+a.boton {
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-weight: 700;
+}
+
+
+.boton> img {
+    width: 25px;
+    margin-left: 1em;
+}
+
+
+
+
+input#termino {
+    width: 301px;
+    border: solid 2px black;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+
+button.icono-especial {
+    border: none;
+    background: transparent !important;
+}
+
+
+a.limpiar-busqueda {
+    text-decoration: none;
+    color: #6f6f6f;
+    font-size: 12px;
+}
+
+
+tabla-productos td {
+    padding: 4px 0;
+}
+
+
+td.iconos-de-tabla form>button {
+    background: transparent;
+    border: none;
+    padding: 4px 0;
+    text-align: right;
+    width: 100%;
+}
+
+
+td.iconos-de-tabla {
+    text-align: right;
+    padding: 2px 0;
+}
+
+
+th {
+    font-size: 18px;
+    font-weight: 900;
+}
+
+
+/*Formulario de productos*/
+
+.flex-box-especial {
+    display: flex;
+    padding: 20px 0;
+    align-items: center;
+}
+
+label.label-texto {
+    font-size: 18px;
+    margin-right: 9px;
+    font-weight: 600;
+    padding-left: 7px;
+    flex: none;
+}
+
+
+.formulario-bordes-negros {
+    width: 100%;
+    padding: 7px;
+    border: solid 2px black;
+    border-radius: 5px;
+    margin-right: 7px;
+}
+
+input.formulario-bordes-rojo {
+    border: none;
+    border-bottom: 2px solid red;
+    width: 100%;
+}
+
+
+button.boton-enviar {
+    background: #ff4848;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin-right: 10px;
+}
+
+
+/*editar*/
+
+
+.imagenes-disenios {
+    display: flex;
+    text-align: center;
+}
+
+
+.contenedor-imagen {
+    width: 220px;
+    padding: 15px;
+    overflow: hidden;
+}
+
+
+.contenedor-imagen>img {
+    width: 100%;
+}
+
+
+.contenedor-imagen>img {
+    width: 100%;
+    border-bottom: 2px solid red;
+}
+
+
+p.texto-producto-admin {
+    font-weight: 700;
+}
+
+
+/*login*/
+
+
+input#recordarme {
+    margin-left: 2em;
+}
+
+p.detalles {
+    text-align: center;
+    padding: 20px 0;
+}
+
+
+p.detalles>a {
+    text-decoration: none;
+}
+
+
+h3.sub-titulo-admin {
+    font-size: 22px;
+    margin-bottom: 2em;
+    margin-top: 1em;
+}
+
+.boton-y-terminos {
+    padding: 1em 0 45px;
+}
