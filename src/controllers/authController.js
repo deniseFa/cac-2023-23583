@@ -51,6 +51,28 @@ authController.processRegister = async (req, res) => {
       return res.render('auth/register', { error: 'Las contraseñas no coinciden' });
     }
 
+    // Verificar condiciones de seguridad de la contraseña
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[.,\-_/?@]).{4,}$/;
+    if (!passwordRegex.test(password)) {
+      let errorMessage = 'La contraseña no cumple con los requisitos de seguridad.';
+
+      // Verificar requisitos específicos y agregar mensajes de error
+      if (!/(?=.*[A-Z])/.test(password)) {
+        errorMessage += ' | Debe contener al menos una letra mayúscula.';
+      }
+      
+      if (!/(?=.*\d)/.test(password)) {
+        errorMessage += ' | Debe contener al menos un número.  ';
+      }
+
+      if (!/(?=.*[.,\-_/?@])/.test(password)) {
+        errorMessage += ' | Debe contener al menos un carácter especial (.,-_/?@). |';
+      }
+
+      console.error('Error en la contraseña:', errorMessage);
+      return res.render('auth/register', { error: errorMessage });
+    }
+
     const hashedPassword = await bcrypt.hash(password, 10);
     await req.mysql.query('INSERT INTO user (name, lastname, email, password, create_time) VALUES (?, ?, ?, ?, NOW())', [name, lastname, email, hashedPassword]);
 
@@ -75,4 +97,3 @@ authController.logout = (req, res) => {
 };
 
 module.exports = authController;
-
