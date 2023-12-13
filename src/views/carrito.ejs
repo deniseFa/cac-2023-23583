@@ -27,8 +27,8 @@
             </div>
         </div>
     </div>
-    <div class="row tabla-color">
-        <div class="col-md-12">
+    <div class="row tabla-color" id="producto1">
+        <div class="col-md-12" >
             <div class="row centro-flex">
                 <div class="col-md-6">
                     <div class="row centro-flex">
@@ -66,14 +66,14 @@
                 </div>
                 <div class="col-md-1">
                      
-                    <button type="button" class="btn  alerta-boton">
-                        x
-                    </button>
+                   <button type="button" class="btn alerta-boton" onclick="eliminarProducto('producto1')">
+                            x
+                        </button>
                 </div>
             </div>
         </div>    
     </div>
-        <div class="row tabla-color">
+        <div class="row tabla-color" id="producto2">
         <div class="col-md-12">
             <div class="row centro-flex">
                 <div class="col-md-6">
@@ -111,7 +111,7 @@
                 </div>
                 <div class="col-md-1">
                      
-                    <button type="button" class="btn alerta-boton">
+                    <button type="button" class="btn alerta-boton" onclick="eliminarProducto('producto2')">
                         x
                     </button>
                 </div>
@@ -168,13 +168,26 @@
                             <p class="totales">$ 5.399,97</p>
                         </div>
                     </div>
-                </div>               
+                </div>
             </div>
-          <button type="submit" class="enviar-compra" style="height: auto;"><a href="#">IR A PAGAR</a></button>
         </div>
     </div>
 </div>
 
+
+
+<script>
+function eliminarProducto(id) {
+    // Elimina la fila correspondiente
+    const fila = document.getElementById(id);
+    if (fila) {
+        fila.remove();
+    }
+}
+
+
+
+</script>
 
 
 <%- include('partials/footer.ejs') %>
