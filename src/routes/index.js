@@ -14,7 +14,7 @@ const authRoutes = require('./auth'); // Importa las rutas de autenticación
 router.get('/', homeController.getHome);
 router.get('/carrito', carritoController.getCarrito);
 router.get('/footer', footerController.getFooter);
-router.get('/item', itemController.getItem);
+router.get('/item/:id', itemController.getItemById);
 router.get('/menu', menuController.getMenu);
 router.get('/shop', shopController.getShop);
 
