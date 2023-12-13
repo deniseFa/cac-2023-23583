@@ -2,6 +2,11 @@
 
 <%- include('../partials/header.ejs') %>
 
+<!-- Agregar esto al principio de tu EJS, dentro del cuerpo del documento -->
+<div id="forgot-password-alert-container" class="position-fixed top-0 start-50 translate-middle-x p-3" style="z-index: 1050">
+  <!-- Contenedor de alerta emergente para "Olvidé mi contraseña" -->
+</div>
+
 
  
 <div class="container-fluid">
@@ -38,7 +43,8 @@
             <input type="checkbox" id="recordarme" name="aceptar"> Recordarme
           </div>
 
-          <p class="detalles"><a href="#">Olvide mi contraseña</a> | <a href="/auth/register">Registrarme</a></p>
+          <p class="detalles"><a href="#" onclick="showForgotPasswordAlert()">Olvidé mi contraseña</a> | <a href="/auth/register">Registrarme</a></p>
+
 
       </form>
 
@@ -54,6 +60,31 @@
 
 
   
+<script>
+  function showForgotPasswordAlert() {
+    // Mostrar la alerta
+    const alertContainer = document.getElementById('forgot-password-alert-container');
+    
+    // Crear el elemento de alerta
+    const alertElement = document.createElement('div');
+    alertElement.className = 'alert alert-danger alert-dismissible fade show';
+    alertElement.role = 'alert';
+    alertElement.innerHTML = `
+      Aun no se encuentra disponible
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    `;
+
+    // Agregar el elemento al contenedor
+    alertContainer.innerHTML = '';
+    alertContainer.appendChild(alertElement);
+
+    // Cerrar automáticamente después de 5 segundos
+    setTimeout(() => {
+      alertContainer.innerHTML = '';
+    }, 5000);
+  }
+</script>
+
 
 
   
