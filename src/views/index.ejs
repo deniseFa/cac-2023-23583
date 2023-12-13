@@ -58,7 +58,7 @@
        <!-- Repite -->
 <% productos.forEach((producto) => { %>
   <li class="glide__slide">
-    <a href="item" class="productos-link">
+   <a href="/item/<%= producto.product_id %>" class="productos-link">
       <% if (producto.discount) { %>
         <div class="banner-superior">Nuevo</div>
       <% } %>
