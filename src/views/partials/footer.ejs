@@ -22,5 +22,30 @@
 
 <script type="text/javascript" src="/js/sumar-restar.js"></script>
 
+<script>
+  function showContactAlert() {
+    // Mostrar la alerta
+    const alertContainer = document.getElementById('contact-alert-container');
+    
+    // Crear el elemento de alerta
+    const alertElement = document.createElement('div');
+    alertElement.className = 'alert alert-danger alert-dismissible fade show';
+    alertElement.role = 'alert';
+    alertElement.innerHTML = `
+      Aun no se encuentra disponible   
+    `;
+
+    // Agregar el elemento al contenedor
+    alertContainer.innerHTML = '';
+    alertContainer.appendChild(alertElement);
+
+    // Cerrar automáticamente
+    setTimeout(() => {
+      alertContainer.innerHTML = '';
+    }, 2000);
+  }
+</script>
+
+
 </body>
 </html>
