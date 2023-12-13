@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAC-2023-23583</title>
+    <title>Document</title>
 
 
     <!-- Boostrap--> 
@@ -27,6 +27,8 @@
 </head>
 <body>
     <!--Inicio header-->
+
+
   <header>
     <nav>
         <div class="logo">
@@ -41,9 +43,36 @@
                     <li><a href="../item" class="menu-objetos">Item 1</a></li>
                 </ul>
             </li>
-            <li><a href="#" class="menu-objetos">Contacto</a></li>
+            <li><a href="#" class="menu-objetos" onclick="showContactAlert()">Contacto</a></li>
             <li><a href="../auth/login" class="menu-objetos">Login</a></li>
             <li><a href="../carrito"><i class="fas fa-shopping-cart"></i></a></li>
         </ul>
     </nav>
 </header>  <!--Fin header-->
+
+<div id="contact-alert-container"></div>
+
+    <script>
+  function showContactAlert() {
+    // Mostrar la alerta
+    const alertContainer = document.getElementById('contact-alert-container');
+    
+    // Crear el elemento de alerta
+    const alertElement = document.createElement('div');
+    alertElement.className = 'alert alert-danger alert-dismissible fade show';
+    alertElement.role = 'alert';
+    alertElement.innerHTML = `
+      Aun no se encuentra disponible   
+    `;
+
+    // Agregar el elemento al contenedor
+    alertContainer.innerHTML = '';
+    alertContainer.appendChild(alertElement);
+
+    // Cerrar automáticamente
+    setTimeout(() => {
+      alertContainer.innerHTML = '';
+    }, 2000);
+  }
+</script>
+
