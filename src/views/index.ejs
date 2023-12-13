@@ -1,115 +1,83 @@
 <%- include('partials/headerFront.ejs') %>
 
-<div class="banner-principal">
-                <div class="texto-del-banner">
-                    <h1>Nuevos Ingresos</h1>
-                    <p>Descubrí el próximo Funko Pop de tu colección</p>
-                    <a href="/shop" class="boton-slider">SHOP</a>
-                    
-                </div>
-            </div>
+ <!--MENU/HOME-->
+    <section class ="hero">
+        <article class="hero_content">
+            <h3 class="titulo">Nuevos Ingresos</h3>
+            <p class="texto">Descubrí el próximo Funko Pop de tu colección</p>
+            <a class="link" href="shop">SHOP</a>
+            
+        </article>
+    </section>
+    <main class="main-container">
+        <section class="collection">
+            <article class="collection_content">
+                <h3 class="collection_tittle"><%= licences[1].licence_name  %></h3>
+                <p class="collection_text"><%= licences[1].licence_description  %></p>
+                <a class="collection_link" href="shop">VER COLECCIÓN</a>
+            </article>
 
-    <main>
-<div class="container-fluid contenedor-funko">
-    <div class="row flex-box-especial">
-        <div class="col-md-6">
-            <article>
-                <h3 class="titulo-home-funko">licence_name   1</h3>
-                <p class="detalles-funkos-home">licence_description 2.</p>
-                <hr class="linea-home">
-                <a class="ver-coleccion" href="/shop">VER COLECCIÓN</a>
-            </article>
-        </div>
-        <div class="col-md-6">
-            <picture>
-                <img class="imagen-funko-home" src="./img/star-wars/licence_image1" alt="Figura coleccionable Funko de Grogu de la serie The Mandalorian">
+            <picture class="collection_cover">
+                <img src=".<%= licences[1].licence_image  %>" alt="Figura coleccionable Funko de Grogu de la serie The Mandalorian">
             </picture>
-        </div>
-    </div>
-    <div class="row flex-box-especial">
-        <div class="col-md-6">
-            <picture>
-                <img class="imagen-funko-home" src="./img/licence_image2" alt="Figura coleccionable Funko de Grogu de la serie The Mandalorian">
-            </picture>
-        </div>
-        <div class="col-md-6">
-             <article>
-                <h3 class="titulo-home-funko">licence_name    2</h3>
-                <p class="detalles-funkos-home"> licence_description   2</p>
-                <hr class="linea-home">
-                <a class="ver-coleccion" href="/shop">VER COLECCIÓN</a>
+        </section>
+        <section class="collection">
+            <article class="collection_content">
+                <h3 class="collection_tittle"><%= licences[0].licence_name  %></h3>
+                <p class="collection_text"><%= licences[0].licence_description  %></p>
+                <a class="collection_link" href="shop">VER COLECCIÓN</a>
             </article>
-        </div>
-    </div>
-    <div class="row flex-box-especial">
-        <div class="col-md-6">
-              <article>
-                <h3 class="titulo-home-funko"> licence_nam   3</h3>
-                <p class="detalles-funkos-home">licence_description 3</p>
-                <hr class="linea-home">
-                <a class="ver-coleccion" href="/shop">VER COLECCIÓN</a>
-            </article>
-        </div>
-        <div class="col-md-6">
-             <picture>
-                <img class="imagen-funko-home" src="./img/harry-potter/slicence_image3" alt="Figura coleccionable">
+
+            <picture class="collection_cover">
+                <img src=".<%= licences[0].licence_image  %>" alt="Figura coleccionable Funko de Vulpix del anime Pokemon">
             </picture>
-        </div>
-    </div>
-</div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-            <h3 class="titulo-home-funko" style="font-weight: 600;">Últimos lanzamientos</h3><br>
-              <div class="glide">
+        </section>
+        
+        <section class="collection">
+
+            <article class="collection_content">
+                <h3 class="collection_tittle"><%= licences[2].licence_name  %></h3>
+                <p class="collection_text"><%= licences[2].licence_description  %></p>
+                <a class="collection_link" href="shop">VER COLECCIÓN</a>
+            </article>
+
+            <picture class="collection_cover">
+                <img src=".<%= licences[2].licence_image  %>" alt="Figura coleccionable Funko del Patronus de Snape de la saga de películas de Harry Potter">
+            </picture>
+        </section>
+
+        <section class="slider">
+            <h2 class="slider_tittle">ÚLTIMOS LANZAMIENTOS</h2>
+                
+
+
+  <div class="glide">
     <div class="glide__track" data-glide-el="track">
       <ul class="glide__slides">
-        <!-- Repite -->
-        <li class="glide__slide">
-          <a href="/item" class="productos-link">
-            <div class="banner-superior">Nuevo</div>
-            <img src="img/star-wars/trooper-1.webp" alt="trooper-1.webp">
-            <p class="categoria">STAR WARS</p>
-            <p class="titulo-producto">STORMTROOPER LIGHTSABER</p>
-            <p class="precio-producto">$ 1799,99</p>
-            <p class="cuotas">3 cuotas sin interés</p>
-          </a>
-        </li>
+       
+       <!-- Repite -->
+<% productos.forEach((producto) => { %>
+  <li class="glide__slide">
+    <a href="item" class="productos-link">
+      <% if (producto.discount) { %>
+        <div class="banner-superior">Nuevo</div>
+      <% } %>
+       <div class="imagenes">
+                    <img src="img/<%= producto.image_front %>" alt="<%= producto.sku %>" class="imagen-1">
+                    <img src="img/<%= producto.image_back %>" alt="<%= producto.sku %>" class="imagen-2">
+                  </div>
+      <p class="categoria"><%= producto.licence_name %></p>
+      <p class="titulo-producto"><%= producto.product_name %></p>
+      <p class="precio-producto">$ <%= typeof producto.price === 'number' ? producto.price.toFixed(2) : producto.price %></p>
 
-        <li class="glide__slide">
-          <a href="/item" class="productos-link">
-            <div class="banner-superior">Nuevo</div>
-            <img src="img/pokemon/pidgeotto-1.webp" alt="pidgeotto-1.webp">
-            <p class="categoria">POKEMON</p>
-            <p class="titulo-producto">PIDGEOTTO</p>
-            <p class="precio-producto">$ 1799,99</p>
-            <p class="cuotas">3 cuotas sin interés</p>
-          </a>
-        </li>
+      <% if (producto.dues) { %>
+        <p class="cuotas"><%= producto.dues %> cuotas sin interés</p>
+      <% } %>
+    </a>
+  </li>
+<% }); %>
+<!-- Fin de la repetición -->
 
-        <li class="glide__slide">
-          <a href="/item" class="productos-link">
-            <div class="banner-superior">Nuevo</div>
-            <img src="img/harry-potter/luna-1.webp" alt="trooper-1.webp">
-            <p class="categoria">HARRY POTTER</p>
-            <p class="titulo-producto">LUNA LOVEGOOD LION MASK</p>
-            <p class="precio-producto">$ 1799,99</p>
-            <p class="cuotas">3 cuotas sin interés</p>
-          </a>
-        </li>
-
-        <li class="glide__slide">
-          <a href="/item" class="productos-link">
-            <div class="banner-superior">Nuevo</div>
-            <img src="img/star-wars/bobbafeth-1.webp" alt="trooper-1.webp">
-            <p class="categoria">STAR WARS</p>
-            <p class="titulo-producto">BOBA FETT FIGHTER</p>
-            <p class="precio-producto">$ 1799,99</p>
-            <p class="cuotas">3 cuotas sin interés</p>
-          </a>
-        </li>
-
-        <!-- Fin de la repetición -->
       </ul>
     </div>
 
@@ -149,14 +117,19 @@
       }).mount();
     </script>
   </div>
-        </div>
-
-    </div>
-</div>
 
 
 
+
+
+        </section>
 
     </main>
+
+<!--FIN MENU/HOME-->
+
+
+
+
 
 <%- include('partials/footer.ejs') %>
