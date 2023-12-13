@@ -3,64 +3,79 @@
 <div class="container-fluid">
     <div class="row centro-flex">
         <div class="col-md-6">
-            <img src="img/star-wars/baby-yoda-1.webp" alt="trooper-1.webp">
+            <img src="/img/<%= producto.image_front %>" alt="<%= producto.sku %>">
         </div>
         <div class="col-md-6">
-
-                <p class="categoria-producto">STAR WARS</p>
-                <h1 class="titulo-producto">BABY YODA BLUEBALL</h1>
-                <p class="texto-producto">Figura coleccionable de Baby Yoda (Grogu) - The Mandalorian Saga, edición limitada.</p>
-                <p class="precio-producto">$ 1799,99</p>
+            <p class="categoria-producto" style="text-transform: uppercase;"><%= producto.licence_name %></p>
+            <h1 class="titulo-producto"><%= producto.product_name %></h1>
+            <p class="texto-producto"><%= producto.product_description %></p>
+            <p class="precio-producto">$ <%= typeof producto.price === 'number' ? producto.price.toFixed(2) : producto.price %></p>
 
             <div class="row centro-flex">
-                <form action="">
-                    <div class="col-md-8">
-                        <div class="row centro-flex">
-                         <div class="col-md-6 formulario-subir-bajar">
-                            <input class="cantidad-producto" type="number" min="1" max="50" placeholder="1">
-                            <div class="cositos-de-sumar">
-                              <div class="subir-bajar" onclick="sumar(this)">+</div>
-                              <div class="subir-bajar" onclick="restar(this)">-</div>
-                            </div>
-                          </div>
-                            <div class="col-md-6">
-                                <button type="submit" class="enviar-compra"><a href="carrito">Agregar al carrito</a></button>
-                            </div>
-                        </div>
+        <% if (producto.stock > 0) { %>
+              <!-- Muestra el formulario normal si hay stock -->
+              <form id="addToCartForm">
+                <div class="col-md-8">
+                  <div class="row centro-flex">
+                    <div class="col-md-6 formulario-subir-bajar">
+                      <input class="cantidad-producto" type="number" min="1" max="<%= producto.stock %>" placeholder="1">
+                      <div class="cositos-de-sumar">
+                        <div class="subir-bajar" onclick="sumar(this)">+</div>
+                        <div class="subir-bajar" onclick="restar(this)">-</div>
+                      </div>
                     </div>
-                </form>
-     
-            </div>
+                    <div class="col-md-6">
+                      <!-- Cambia el tipo de botón para evitar la recarga de la página -->
+                      <button type="button" class="enviar-compra" onclick="addToCart()">
+                        Agregar al carrito
+                      </button>
+                    </div>
+                  </div>
+                  <p style="color: #1D84B5;font-weight: 700;margin-top: 14px;">
+                    <a href="#" style="color: #1D84B5;font-weight: 700;margin-top: 14px;"> Ver métodos de pago </a> | <%= producto.dues %> cuotas sin interés
+                  </p>
+                </div>
+              </form>
+            <% } else { %>
+              <!-- Muestra un mensaje de "sin stock" si el stock es cero -->
+              <p style="color: red; font-weight: 700;">Sin stock</p>
+            <% } %>
 
+            </div>
         </div>
     </div>
 
 
-  <div class="glide">
+<h2 style="font-size: 34px;font-weight: bolder;margin-top: 1em;margin-bottom: 26px;">Productos Relacionado</h2>
+
+<!-- Productos relacionados -->
+<div class="glide">
     <div class="glide__track" data-glide-el="track">
       <ul class="glide__slides">
        
        <!-- Repite -->
-<% productos.forEach((producto) => { %>
-  <li class="glide__slide">
-    <a href="item" class="productos-link">
-      <% if (producto.discount) { %>
-        <div class="banner-superior">Nuevo</div>
-      <% } %>
-       <div class="imagenes">
-                    <img src="img/<%= producto.image_front %>" alt="<%= producto.sku %>" class="imagen-1">
-                    <img src="img/<%= producto.image_back %>" alt="<%= producto.sku %>" class="imagen-2">
-                  </div>
-      <p class="categoria"><%= producto.licence_name %></p>
-      <p class="titulo-producto"><%= producto.product_name %></p>
-      <p class="precio-producto">$ <%= typeof producto.price === 'number' ? producto.price.toFixed(2) : producto.price %></p>
 
-      <% if (producto.dues) { %>
-        <p class="cuotas"><%= producto.dues %> cuotas sin interés</p>
-      <% } %>
-    </a>
-  </li>
-<% }); %>
+  <% productosRelacionados.forEach((productoRelacionado) => { %>
+    <!-- Puedes usar el mismo formato que usas para mostrar los productos principales -->
+      <li class="glide__slide">
+          <a href="/item/<%= productoRelacionado.product_id %>" class="productos-link">
+            <% if (productoRelacionado.discount) { %>
+              <div class="banner-superior">Nuevo</div>
+            <% } %>
+            <div class="imagenes">
+              <img src="/img<%= productoRelacionado.image_front %>" alt="<%= productoRelacionado.sku %>" class="imagen-1">
+              <img src="/img<%= productoRelacionado.image_back %>" alt="<%= productoRelacionado.sku %>" class="imagen-2">
+            </div>
+            <p class="titulo-producto"><%= productoRelacionado.product_name %></p>
+            <p class="precio-producto">$ <%= typeof productoRelacionado.price === 'number' ? productoRelacionado.price.toFixed(2) : productoRelacionado.price %></p>
+            <% if (productoRelacionado.dues) { %>
+              <p class="cuotas"><%= productoRelacionado.dues %> cuotas sin interés</p>
+            <% } %>
+          </a>
+        </li>
+  <% }); %>
+
+
 <!-- Fin de la repetición -->
 
       </ul>
@@ -100,6 +115,41 @@
         rewindDuration: 800, // Duración de la animación de rebobinado
         animationTimingFunc: 'cubic-bezier(0.165, 0.840, 0.440, 1.000)'  // Función de temporización de la animación
       }).mount();
+
+
+
+
+  function addToCart() {
+    // Aquí puedes agregar lógica adicional, como enviar datos al servidor si es necesario
+
+    // Mostrar la notificación emergente
+    const notificationContainer = document.getElementById('notification-container');
+    const productName = '<%= producto.product_name %>';
+    const notificationMessage = `${productName} agregado con éxito!`;
+
+    // Crea un elemento de notificación Bootstrap
+    const notificationElement = document.createElement('div');
+    notificationElement.className = 'alert alert-success alert-dismissible fade show';
+    notificationElement.role = 'alert';
+    notificationElement.innerHTML = `
+      ${notificationMessage}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    `;
+
+    // Agrega el elemento al contenedor
+    notificationContainer.innerHTML = '';
+    notificationContainer.appendChild(notificationElement);
+
+    // Cierra la notificación después de 3 segundos (3000 milisegundos)
+    setTimeout(() => {
+      notificationContainer.innerHTML = '';
+    }, 3000);
+  }
+
+
+
+
+
     </script>
   </div>
 
@@ -107,6 +157,16 @@
 
 
 </div>
+
+
+</div>
+
+
+<!-- Agrega este código al final de tu EJS -->
+<div id="notification-container" class="position-fixed bottom-0 end-0 p-3">
+
+</div>
+
 
 
 <%- include('partials/footer.ejs') %>

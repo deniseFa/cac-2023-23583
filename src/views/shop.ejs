@@ -72,10 +72,10 @@
 			</form>
 		</div>
 		<div class="col-md-9">
-			<div class="row">
+			<ditv class="row">
 				    <% productos.forEach((producto) => { %>
 				      <div class="col-md-4">
-				        <a href="item" class="productos-link">
+				         <a href="/item/<%= producto.product_id %>" class="productos-link">
 				          <% if (producto.discount) { %>
 				            <div class="banner-superior">Nuevo</div>
 				          <% } %>
