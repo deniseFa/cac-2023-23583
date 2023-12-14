@@ -3,10 +3,10 @@ const express = require('express');
 const router = express.Router();
 const createProductController = require('../controllers/createProductController');
 
-// Mostrar formulario para crear un nuevo producto
+// Mostrar formulario
 router.get('/new', createProductController.showCreateForm);
 
-// Procesar formulario para crear un nuevo producto
+// Procesar formulario
 router.post('/new', createProductController.processCreateForm);
 
 module.exports = router;
