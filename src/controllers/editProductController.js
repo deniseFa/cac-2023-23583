@@ -6,10 +6,9 @@ editProductController.showEditForm = async (req, res) => {
   try {
     const productId = req.params.id;
 
-    // Obtener información del producto a editar desde la base de datos
+    // editar
     const [product] = await req.mysql.query('SELECT * FROM product WHERE product_id = ?', [productId]);
 
-    // Obtener categorías y licencias desde la base de datos
     const [categorias] = await req.mysql.query('SELECT * FROM category');
     const [licencias] = await req.mysql.query('SELECT * FROM licence');
 
@@ -26,7 +25,6 @@ editProductController.processEditForm = async (req, res) => {
     const productId = req.params.id;
     const { categoria, licencia, nombre, descripcion, sku, precio, stock, descuento, cuotas } = req.body;
 
-    // Actualizar los datos del producto en la base de datos
     const query = `
       UPDATE product
       SET product_name = ?, product_description = ?, price = ?, stock = ?, discount = ?, sku = ?, dues = ?, licence_id = ?, category_id = ?
