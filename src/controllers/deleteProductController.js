@@ -5,9 +5,8 @@ const deleteProductController = {};
 deleteProductController.processDelete = async (req, res) => {
   try {
     const productId = req.params.id;
-    // Realizar la lógica para borrar el producto en la base de datos utilizando el productId
     await req.mysql.query('DELETE FROM product WHERE product_id = ?', [productId]);
-    res.redirect('/admin/dashboard'); // Redirigir a la página del panel de administración después del borrado
+    res.redirect('/admin/dashboard'); 
   } catch (error) {
     console.error('Error al borrar el producto:', error.message);
     res.status(500).send('Error interno del servidor');
