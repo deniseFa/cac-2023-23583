@@ -1,7 +1,7 @@
 // src/controllers/dashboardController.js
 const dashboardController = {};
 
-// Obtener lista de productos desde la base de datos y pasarla a la vista
+// Obtener lista de productos
 dashboardController.getProducts = async (req, res) => {
   try {
     let query = `
@@ -14,14 +14,12 @@ dashboardController.getProducts = async (req, res) => {
     const { termino } = req.body;
 
     if (termino) {
-      // Agregar condiciones de búsqueda por nombre o SKU
+      // Busqueda por nombre o SKU
       query += ` WHERE p.product_name LIKE ? OR p.sku LIKE ?`;
-      // Ordenar por product_id en orden ascendente
       query += ` ORDER BY p.product_id ASC`;
       const [productos] = await req.mysql.query(query, [`%${termino}%`, `%${termino}%`]);
       res.render('admin/dashboard', { productos });
     } else {
-      // Ordenar por product_id en orden ascendente
       query += ` ORDER BY p.product_id ASC`;
       const [productos] = await req.mysql.query(query);
       res.render('admin/dashboard', { productos });
