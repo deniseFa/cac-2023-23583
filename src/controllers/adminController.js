@@ -11,6 +11,5 @@ adminController.showUsers = (req, res) => {
   res.render('admin/users');
 };
 
-// Otras funciones del panel de administración según tus necesidades
 
 module.exports = adminController;
