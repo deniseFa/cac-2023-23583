@@ -1,7 +1,7 @@
 // Importa tu configuración de la base de datos
 const { conn } = require('../config/database');
 
-// Función para obtener productos con información de la categoría y la licencia desde la base de datos
+// Función para obtener productos
 const getProductosFromDB = async (limit = 6) => {
   try {
     const [rows, fields] = await conn.execute(`
@@ -23,13 +23,10 @@ const getProductosFromDB = async (limit = 6) => {
 // Controlador para la página de inicio (index)
 exports.getHome = async (req, res) => {
   try {
-    // Obtén los productos de la base de datos
     const productos = await getProductosFromDB();
 
-    // Realiza una consulta para obtener los datos de la tabla "licence"
     const [licences, fieldsLicences] = await conn.execute('SELECT * FROM licence');
 
-    // Pasa los datos a la vista
     res.render('index.ejs', { productos, licences });
   } catch (error) {
     console.error('Error al obtener datos de la tabla licence o product:', error.message);
