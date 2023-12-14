@@ -10,9 +10,8 @@ const getProductoByIdFromDB = async (productId) => {
     );
 
     if (productRows.length > 0) {
-      const producto = productRows[0]; // Devuelve el primer (y único) producto encontrado
+      const producto = productRows[0]; o
 
-      // Consulta para obtener productos relacionados
       const [relatedRows, relatedFields] = await conn.execute(
         'SELECT p.*, l.licence_name FROM product p JOIN licence l ON p.licence_id = l.licence_id WHERE p.licence_id = ? AND p.product_id != ? LIMIT 3',
         [producto.licence_id, productId]
@@ -22,7 +21,7 @@ const getProductoByIdFromDB = async (productId) => {
 
       return { producto, productosRelacionados };
     } else {
-      return null; // Si no se encuentra el producto, puedes manejarlo de la manera que desees
+      return null; // Si no se encuentra el producto
     }
   } catch (error) {
     console.error('Error al ejecutar la consulta:', error.message);
@@ -30,7 +29,7 @@ const getProductoByIdFromDB = async (productId) => {
   }
 };
 
-// Controlador para la página de detalle del producto
+// Controlador para la pag de detalle del producto
 exports.getItemById = async (req, res) => {
   const productId = req.params.id; // El ID del producto provisto en la URL
 
@@ -40,7 +39,6 @@ exports.getItemById = async (req, res) => {
     if (producto) {
       res.render('item', { producto, productosRelacionados });
     } else {
-      // Manejar el caso donde el producto no se encuentra
       res.status(404).send('Producto no encontrado');
     }
   } catch (error) {
